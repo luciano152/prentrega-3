@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Préstamos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Aquí aumentamos el tamaño del título del formulario */
+        .form-header p {
+            font-size: 30px; /* Aumenta el tamaño del texto */
+            color: #333;
+            font-weight: bold;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .form-container {
+            width: 60%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox label {
+            margin-left: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .summary-container {
+            width: 35%;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .result-group p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .result-group span {
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <!-- Aquí dejamos solo el título del formulario y lo hacemos más grande -->
+            <p>Formulario de Préstamos</p>
+        </div>
+        
+        <div class="content">
+            <!-- Formulario centrado -->
+            <div class="form-container">
+                <form id="prestamo-form">
+                    <div class="input-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder="Tu Nombre">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" placeholder="Tu Apellido">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email (Opcional)</label>
+                        <input type="email" id="email" placeholder="you@example.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="monto">¿Cuánto necesitas?</label>
+                        <input type="number" id="monto" placeholder="100000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cuotas">¿En cuántas cuotas?</label>
+                        <input type="number" id="cuotas" placeholder="12">
+                    </div>
+
+                    <div class="input-group checkbox">
+                        <input type="checkbox" id="save-info">
+                        <label for="save-info">Guardar información para la próxima vez</label>
+                    </div>
+
+                    <button type="submit" id="simular-btn">Simular</button>
+                </form>
+            </div>
+
+            <!-- Resultados a la derecha -->
+            <div class="summary-container">
+                <h3>Resultados de la Simulación</h3>
+                <div class="result-group">
+                    <p>Préstamo solicitado: <span id="monto-prestamo">$0</span></p>
+                    <p>Número de cuotas: <span id="cantidad-cuotas">0</span></p>
+                    <p>Intereses totales: <span id="intereses">$0</span></p>
+                    <p>Total a devolver: <span id="total">$0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
